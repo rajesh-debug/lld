@@ -1,0 +1,14 @@
+# Java build
+*.class
+*.jar
+*.war
+*.ear
+
+# Build directories
+/target/
+/out/
+/build/
+
+# IDE-specific
+*.iml
+.idea/
