@@ -8,10 +8,10 @@ import java.util.List;
 @Getter
 public class Topic {
 
-    private String topicId;
-    private String topicName;
-    private List<TopicSubscriber> topicSubscribers = new ArrayList<>();
-    private List<Message> messageList = new ArrayList<>();
+    private final String topicId;
+    private final String topicName;
+    private final List<TopicSubscriber> topicSubscribers = new ArrayList<>();
+    private final List<Message> messageList = new ArrayList<>();
 
 
     // these two information will be passed creating the Topic, rest is dynamic one
