@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Cache/Cache.iml" filepath="$PROJECT_DIR$/Cache/Cache.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ParkingLot/ParkingLot.iml" filepath="$PROJECT_DIR$/ParkingLot/ParkingLot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/design-parking-lot/design-parking-lot.iml" filepath="$PROJECT_DIR$/design-parking-lot/design-parking-lot.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/lld.iml" filepath="$PROJECT_DIR$/.idea/lld.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-threading/multi-threading.iml" filepath="$PROJECT_DIR$/multi-threading/multi-threading.iml" />
     </modules>
   </component>
 </project>
