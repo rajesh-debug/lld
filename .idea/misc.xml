@@ -5,6 +5,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/multi-threaded-message-queue/pom.xml" />
+        <option value="$PROJECT_DIR$/design-cache1/pom.xml" />
       </list>
     </option>
   </component>
