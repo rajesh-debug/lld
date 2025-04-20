@@ -6,6 +6,15 @@
       <list>
         <option value="$PROJECT_DIR$/multi-threaded-message-queue/pom.xml" />
         <option value="$PROJECT_DIR$/design-cache1/pom.xml" />
+        <option value="$PROJECT_DIR$/design-splitwise/pom.xml" />
+        <option value="$PROJECT_DIR$/design-chess/pom.xml" />
+        <option value="$PROJECT_DIR$/design-tic-tok-toe/pom.xml" />
+        <option value="$PROJECT_DIR$/design-uber/pom.xml" />
+        <option value="$PROJECT_DIR$/design-parking-lot/pom.xml" />
+        <option value="$PROJECT_DIR$/design-notification-system/pom.xml" />
+        <option value="$PROJECT_DIR$/design-document-collaboration-tool/pom.xml" />
+        <option value="$PROJECT_DIR$/design-workflow-orchestration-engine/pom.xml" />
+        <option value="$PROJECT_DIR$/design-ride-sharing-app/pom.xml" />
       </list>
     </option>
   </component>

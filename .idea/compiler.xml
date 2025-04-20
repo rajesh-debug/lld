@@ -6,9 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="design-cache1" />
+        <module name="design-chess" />
+        <module name="design-tic-tok-toe" />
+        <module name="design-splitwise" />
+        <module name="design-ride-sharing-app" />
+        <module name="design-document-collaboration-tool" />
+        <module name="design-uber" />
+        <module name="design-parking-lot" />
         <module name="multi-threaded-message-queue" />
+        <module name="design-workflow-orchestration-engine" />
+        <module name="design-notification-system" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="design-cache" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
