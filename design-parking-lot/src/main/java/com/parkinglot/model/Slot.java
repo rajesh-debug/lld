@@ -1,6 +1,5 @@
 package com.parkinglot.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
@@ -8,6 +7,7 @@ public class Slot {
 
     private Vehicle vehicle;
     private final Integer number;
+    private Long entryTime;
 
     public Slot(Integer number) {
         this.number = number;
@@ -16,6 +16,7 @@ public class Slot {
     public Slot(Vehicle vehicle, Integer number) {
         this.vehicle = vehicle;
         this.number = number;
+        this.entryTime = System.currentTimeMillis();
     }
 
     /**
@@ -60,5 +61,7 @@ public class Slot {
         }
     }
 
-
+    public Long getExitTime() {
+        return System.currentTimeMillis();
+    }
 }
