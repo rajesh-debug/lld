@@ -35,6 +35,7 @@ public class Slot {
      */
     public void assignVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
+        this.entryTime = System.currentTimeMillis();
     }
 
     /**
@@ -59,9 +60,5 @@ public class Slot {
                     number
             );
         }
-    }
-
-    public Long getExitTime() {
-        return System.currentTimeMillis();
     }
 }
