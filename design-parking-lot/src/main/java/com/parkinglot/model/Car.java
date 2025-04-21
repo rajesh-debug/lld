@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-class Car implements Vehicle {
+public class Car implements Vehicle {
 
     private String licensePlateNumber;
 

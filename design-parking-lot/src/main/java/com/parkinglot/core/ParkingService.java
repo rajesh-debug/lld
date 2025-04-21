@@ -28,19 +28,28 @@ public class ParkingService {
         int slotNumber = parkingStrategy.getNextSlot();
 
         parkingLot.parkVehicle(vehicle, slotNumber);
+
+        // remove from available slot
         parkingStrategy.removeSlot(slotNumber);
 
         return slotNumber;
     }
 
-    private void validateParkingLotAvailable() {
-        if (parkingLot == null && parkingStrategy.() < parkingLot.getCapacity()) {
-            throw new SlotFullException("ParkingLot capacity exceeded");
-        }
+    public Integer unpark(int slotNumber) {
+
+        parkingLot.unparkVehicle(slotNumber);
+
+        // remove from available slot
+        parkingStrategy.addSlot(slotNumber);
+
+        return slotNumber;
     }
 
-    public ParkingLot getParkingLot() {
-        return parkingLot;
+
+    private void validateParkingLotAvailable() {
+        if (parkingLot == null) {
+            throw new SlotFullException("ParkingLot capacity exceeded");
+        }
     }
 }
 
