@@ -1,12 +1,16 @@
-package com.parkinglot.core.price;// PricingStrategyFactory.java
+package com.parkinglot.core.price;
+
+import com.parkinglot.model.PricingSlab;
+import com.parkinglot.model.PricingStrategyType;
 
 import java.util.List;
 import java.util.Map;
 
+
 public class PricingStrategyFactory {
 
     private static final Map<Integer, Double> hourToSurgeMultipliers = Map.of(
-            0, 1.2,  // 12 AM
+            0, 1.0,  // 12 AM
             1, 1.2,
             2, 1.1,
             8, 1.5,  // morning rush hour
@@ -22,15 +26,19 @@ public class PricingStrategyFactory {
             new PricingSlab(3, 50)
     );
 
-
-    private static final Map<String, PricingStrategy> pricingMap = Map.of(
-            "flat", new FlatRatePricingStrategy(50),
-            "hourly", new HourlyPricingStrategy(30),
-            "surge", new TimeBasedSurgePricingStrategy(40, hourToSurgeMultipliers),
-            "slab", new SlabBasedPricingStrategy(pricingSlabs, 30)
+    private static final Map<PricingStrategyType, PricingStrategy> pricingMap = Map.of(
+            PricingStrategyType.FLAT, new FlatRatePricingStrategy(100),
+            PricingStrategyType.HOURLY, new HourlyPricingStrategy(25),
+            PricingStrategyType.SURGE, new TimeBasedSurgePricingStrategy(40, hourToSurgeMultipliers),
+            PricingStrategyType.SLAB, new SlabBasedPricingStrategy(pricingSlabs, 30)
     );
 
-    public static PricingStrategy getStrategy(String type) {
-        return pricingMap.getOrDefault(type, new FlatRatePricingStrategy(50)); // fallback
+    public static PricingStrategy getStrategy(PricingStrategyType type) {
+        PricingStrategy pricingStrategy = pricingMap.get(type);
+        if (pricingStrategy == null) {
+            throw new IllegalArgumentException("No PricingStrategy found for type " + type);
+        }
+
+        return pricingStrategy;
     }
 }

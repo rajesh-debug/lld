@@ -1,26 +1,9 @@
 package com.parkinglot.core.price;
 
+import com.parkinglot.model.PricingSlab;
 import com.parkinglot.model.Vehicle;
 
 import java.util.List;
-
-class PricingSlab {
-    private final int upToHour;
-    private final double price;
-
-    public PricingSlab(int upToHour, double price) {
-        this.upToHour = upToHour;
-        this.price = price;
-    }
-
-    public int getUpToHour() {
-        return upToHour;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-}
 
 
 public class SlabBasedPricingStrategy implements PricingStrategy {
