@@ -1,6 +1,7 @@
-package com.parkinglot.services.notification;
+package com.parkinglot.services;
 
 import com.parkinglot.services.notification.NotificationChannelFactory.ChannelType;
+import com.parkinglot.services.notification.SendNotificationService;
 
 import java.util.List;
 
