@@ -5,6 +5,7 @@ import com.parkinglot.core.exception.SlotFullException;
 import com.parkinglot.core.strategy.NaturalSortingParkingStrategy;
 import com.parkinglot.core.strategy.ParkingStrategy;
 import com.parkinglot.model.ParkingLot;
+import com.parkinglot.model.Slot;
 import com.parkinglot.model.Vehicle;
 
 public class ParkingService {
@@ -18,7 +19,7 @@ public class ParkingService {
         }
         this.parkingLot = parkingLot;
         this.parkingStrategy = parkingStrategy;
-        for (int i = 0; i <= parkingLot.getCapacity(); i++) {
+        for (int i = 1; i <= parkingLot.getCapacity(); i++) {
             parkingStrategy.addSlot(i);
         }
     }
@@ -35,14 +36,13 @@ public class ParkingService {
         return slotNumber;
     }
 
-    public Integer unpark(int slotNumber) {
+    public Slot unpark(int slotNumber) {
 
-        parkingLot.unparkVehicle(slotNumber);
-
+        Slot slot = parkingLot.unparkVehicle(slotNumber);
         // remove from available slot
         parkingStrategy.addSlot(slotNumber);
 
-        return slotNumber;
+        return slot;
     }
 
 

@@ -42,4 +42,23 @@ public class Slot {
     public void clear() {
         this.vehicle = null;
     }
+
+    @Override
+    public String toString() {
+        if (isOccupied()) {
+            return String.format(
+                    "{ Slot number=%d, occupied=true, vehicle=%s, color=%s }",
+                    number,
+                    vehicle.licensePlateNumber(),
+                    vehicle.color()
+            );
+        } else {
+            return String.format(
+                    "{ Slot number=%d, occupied=false }",
+                    number
+            );
+        }
+    }
+
+
 }

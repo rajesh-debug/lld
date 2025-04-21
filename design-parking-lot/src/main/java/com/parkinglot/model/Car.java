@@ -11,6 +11,12 @@ public class Car implements Vehicle {
 
     private String color;
 
+    @Override
+    public String color() {
+        return color;
+    }
+
+    @Override
     public String licensePlateNumber() {
         return licensePlateNumber;
     }

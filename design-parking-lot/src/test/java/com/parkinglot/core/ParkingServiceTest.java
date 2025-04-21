@@ -5,6 +5,7 @@ import com.parkinglot.core.exception.SlotFullException;
 import com.parkinglot.core.strategy.NaturalSortingParkingStrategy;
 import com.parkinglot.model.Car;
 import com.parkinglot.model.ParkingLot;
+import com.parkinglot.model.Slot;
 
 public class ParkingServiceTest {
 
@@ -47,7 +48,7 @@ public class ParkingServiceTest {
 
         // Test: unparking a vehicle
         try {
-            int slot = service.unpark(1); // assuming slot starts from 1
+            Slot slot = service.unpark(2); // assuming slot starts from 1
             System.out.println("Test Passed: Vehicle unparked from slot " + slot);
         } catch (Exception e) {
             System.out.println("Test Failed: Error unparking vehicle - " + e.getMessage());
