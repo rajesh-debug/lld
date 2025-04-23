@@ -10,38 +10,30 @@ import java.util.Objects;
 
 public class RuleEngineService {
 
-    private final Map<String, Rule> ruleEngineMap;
+    private final Map<String, Rule> rulesById;
 
-    public RuleEngineService(Map<String, Rule> ruleEngineMap) {
-        this.ruleEngineMap = Objects.requireNonNull(ruleEngineMap, "Rule engine map cannot be null");
+    public RuleEngineService(Map<String, Rule> rulesById) {
+        this.rulesById = Objects.requireNonNull(rulesById, "Rule map must not be null");
     }
 
-    /**
-     * Retrieves a cached rule by its ID.
-     */
     public Rule getRuleById(String ruleId) {
-        Rule rule = ruleEngineMap.get(ruleId);
-        if (rule == null) {
-            throw new IllegalArgumentException("No rule found for ID: " + rule.getRuleId());
-        }
-        return rule;
+        return rulesById.get(ruleId);
     }
 
-    /**
-     * Checks if the rule with the given ID is applicable for the provided input.
-     */
     public boolean isApplicable(Map<Expression, List<String>> input, Rule rule) {
-        return rule.isApplicable(input);
+        return rule != null && rule.isApplicable(input);
     }
 
-    /**
-     * Applies a rule to the given input string. Implementation to be defined.
-     */
     public Outcome apply(Map<Expression, List<String>> input, Rule rule) {
         if (rule == null) {
             throw new IllegalArgumentException("Rule must not be null");
         }
-        return rule.getOutcome(); // Assumes Rule has a getResult() method that returns a String
-    }
 
+        if (rule.isApplicable(input)) {
+            return rule.getOutcome();
+        }
+
+        return null;
+    }
 }
+

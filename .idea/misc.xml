@@ -15,6 +15,7 @@
         <option value="$PROJECT_DIR$/design-document-collaboration-tool/pom.xml" />
         <option value="$PROJECT_DIR$/design-workflow-orchestration-engine/pom.xml" />
         <option value="$PROJECT_DIR$/design-ride-sharing-app/pom.xml" />
+        <option value="$PROJECT_DIR$/design-rule-engine/pom.xml" />
       </list>
     </option>
   </component>

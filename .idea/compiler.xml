@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="design-chess" />
         <module name="design-tic-tok-toe" />
+        <module name="design-rule-engine" />
         <module name="design-splitwise" />
         <module name="design-ride-sharing-app" />
         <module name="design-document-collaboration-tool" />
