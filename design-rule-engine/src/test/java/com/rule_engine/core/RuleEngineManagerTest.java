@@ -66,7 +66,34 @@ import java.util.List;
 
 public class RuleEngineManagerTest {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
+
+        RuleEngineService ruleEngineService = setUp();
+
+        // Initialize RuleEngineManager
+        RuleEngineManager manager = new RuleEngineManager(ruleEngineService);
+
+        // Define expressions
+        Expression expr1 = new Expression("country");
+        Expression expr2 = new Expression("device");
+
+        // Define input
+        Map<Expression, List<String>> input = Map.of(expr1, List.of("IN"), expr2, List.of("desktop"));
+
+        // Evaluate
+        Outcome result = manager.evaluate(input, List.of("rule1", "rule2"));
+
+        // Print outcome
+        if (result != null) {
+            System.out.println("Header: " + result.getHeader());
+            System.out.println("Description: " + result.getDescription());
+            System.out.println("Display Type: " + result.getDisplayType());
+        } else {
+            System.out.println("No applicable rule found.");
+        }
+    }
+
+    private static RuleEngineService setUp() throws Exception {
         // Define expressions
         Expression expr1 = new Expression("country");
         Expression expr2 = new Expression("device");
@@ -85,24 +112,7 @@ public class RuleEngineManagerTest {
         Rule rule2 = new Rule("rule2", Operator.OR, List.of(condition1), outcome2);
 
         // Setup RuleEngineService with rules
-        RuleEngineService ruleEngineService = new RuleEngineService(Map.of("rule1", rule1, "rule2", rule2));
+        return new RuleEngineService(Map.of("rule1", rule1, "rule2", rule2));
 
-        // Initialize RuleEngineManager
-        RuleEngineManager manager = new RuleEngineManager(ruleEngineService);
-
-        // Define input
-        Map<Expression, List<String>> input = Map.of(expr1, List.of("IN"), expr2, List.of("desktop"));
-
-        // Evaluate
-        Outcome result = manager.evaluate(input, List.of("rule1", "rule2"));
-
-        // Print outcome
-        if (result != null) {
-            System.out.println("Header: " + result.getHeader());
-            System.out.println("Description: " + result.getDescription());
-            System.out.println("Display Type: " + result.getDisplayType());
-        } else {
-            System.out.println("No applicable rule found.");
-        }
     }
 }
